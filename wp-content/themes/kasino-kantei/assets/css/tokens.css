@@ -1,0 +1,327 @@
+/* KASINO 鑑定 — Design Tokens
+   Register: 和モダン editorial-premium
+   Palette: Washi (#FBF7F0) base · Sumi (#1C1C1E) primary · Champagne (#C9A961) verdict · Shu (#D64545) hanko-only
+*/
+
+:root {
+  /* ── Color system ── */
+  --washi:   #FBF7F0;
+  --washi-2: #F5EFE3;
+  --washi-3: #EDE4D1;
+  --sumi:    #1C1C1E;
+  --sumi-2:  #2D2A26;
+  --ink:     #3A352E;
+  --ink-soft:#6B6357;
+  --ink-mute:#9A9082;
+
+  /* Shu — reserved for hanko / 鑑定 stamp moments only */
+  --shu:            #D64545;
+  --shu-soft:       #F5D5D5;
+  --vermillion:     #D64545;
+  --vermillion-2:   #B23535;
+  --vermillion-soft:#F5D5D5;
+
+  /* Verdict / score moments */
+  --gold:      #E8B04B;
+  --gold-2:    #C99432;
+  --gold-soft: #FAEBC8;
+  --gold-deep: #C9A961;
+
+  --jade:    #5C8A6E;
+  --indigo:  #2C3E5C;
+
+  --editorial-bg: #1C1C1E;
+  --editorial-fg: #F5F1E8;
+
+  --line:      rgba(28,28,30,0.10);
+  --line-2:    rgba(28,28,30,0.06);
+  --shadow-sm: 0 1px 2px rgba(28,28,30,0.04), 0 1px 3px rgba(28,28,30,0.06);
+  --shadow-md: 0 2px 6px rgba(28,28,30,0.05), 0 8px 24px rgba(28,28,30,0.08);
+
+  /* ── Typography ── */
+  --font-sans:  "Noto Sans JP", "Hiragino Kaku Gothic ProN", system-ui, -apple-system, sans-serif;
+  --font-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+
+  /* ── Radii ── */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+
+  /* ── Spacing ── */
+  --gap: 10px;
+  --pad: 14px;
+
+  /* ── SVG patterns ── */
+  --p-seigaiha: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'><g fill='none' stroke='%231C1C1E' stroke-width='0.6' opacity='0.18'><path d='M0 20 A 20 20 0 0 1 40 20'/><path d='M6 20 A 14 14 0 0 1 34 20'/><path d='M12 20 A 8 8 0 0 1 28 20'/><path d='M-20 20 A 20 20 0 0 1 20 20'/><path d='M20 20 A 20 20 0 0 1 60 20'/></g></svg>");
+  --p-asanoha: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><g fill='none' stroke='%231C1C1E' stroke-width='0.5' opacity='0.15'><polygon points='30,4 56,18 56,46 30,60 4,46 4,18'/><line x1='30' y1='4' x2='30' y2='60'/><line x1='4' y1='18' x2='56' y2='46'/><line x1='56' y1='18' x2='4' y2='46'/><line x1='30' y1='32' x2='56' y2='18'/><line x1='30' y1='32' x2='56' y2='46'/><line x1='30' y1='32' x2='4' y2='18'/><line x1='30' y1='32' x2='4' y2='46'/></g></svg>");
+}
+
+[data-theme="dark"] {
+  --washi:   #15140F;
+  --washi-2: #1D1B16;
+  --washi-3: #25221C;
+  --sumi:    #FBF7F0;
+  --sumi-2:  #E8E2D2;
+  --ink:     #E8E2D2;
+  --ink-soft:#B5AC9C;
+  --ink-mute:#7A7264;
+  --shu:     #D64545;
+  --vermillion: #D64545;
+  --shu-soft: rgba(214,69,69,0.14);
+  --gold-deep: #D4B576;
+  --gold:    #F0C56B;
+  --gold-soft: rgba(232,176,75,0.18);
+  --line:    rgba(251,247,240,0.10);
+  --line-2:  rgba(251,247,240,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--washi);
+  font-feature-settings: "palt" 1;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button { cursor: pointer; font-family: var(--font-sans); }
+
+/* ── Utility ── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Patterns ── */
+.bg-seigaiha { background-image: var(--p-seigaiha); background-size: 40px 20px; }
+.bg-asanoha  { background-image: var(--p-asanoha);  background-size: 60px 60px; }
+
+/* ── Bento card ── */
+.bento {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--pad);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .bento { background: var(--washi-2); }
+
+/* ── Hanko stamp ── */
+.hanko {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px; height: 38px;
+  border: 2px solid var(--shu);
+  border-radius: 6px;
+  color: var(--shu);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 13px;
+  background: rgba(214,69,69,0.04);
+  transform: rotate(-4deg);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.hanko.lg    { width: 48px; height: 48px; font-size: 16px; }
+.hanko.round { border-radius: 50%; }
+
+/* ── Stars ── */
+.stars        { display: inline-flex; gap: 1px; color: var(--gold); font-size: 11px; }
+.stars .empty { color: var(--line); }
+
+/* ── Chip / pill ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--washi-2);
+  color: var(--ink-soft);
+  white-space: nowrap;
+  border: 1px solid var(--line-2);
+}
+.chip.red     { background: var(--vermillion-soft); color: var(--vermillion-2); border-color: transparent; }
+.chip.gold    { background: var(--gold-soft); color: var(--gold-2); border-color: transparent; }
+.chip.black   { background: var(--sumi); color: var(--washi); border-color: transparent; }
+.chip.outline { background: transparent; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 20px;
+  border-radius: var(--r-md);
+  font-weight: 700;
+  font-size: 14px;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+  transition: opacity 0.15s, transform 0.08s;
+  text-decoration: none;
+}
+.btn:active          { transform: scale(0.98); }
+.btn.primary         { background: var(--sumi); color: var(--washi); }
+.btn.primary:hover   { opacity: 0.88; }
+.btn.shu             { background: var(--shu); color: #fff; }
+.btn.shu:hover       { background: var(--vermillion-2); }
+.btn.gold            { background: var(--gold-deep); color: var(--sumi); }
+.btn.gold:hover      { opacity: 0.9; }
+.btn.outline         { background: transparent; border: 1.5px solid var(--line); color: var(--ink); }
+.btn.outline:hover   { background: var(--washi-2); }
+.btn.full            { width: 100%; }
+
+/* ── Progress bar ── */
+.progress {
+  height: 4px;
+  background: var(--washi-3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--sumi) 0%, var(--gold-deep) 100%);
+  border-radius: 2px;
+}
+
+/* ── Kanji divider ── */
+.kanji-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 24px;
+  margin: 8px 0;
+}
+.kanji-divider::before,
+.kanji-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.kanji-divider span {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: 0.3em;
+}
+
+/* ── Section header ── */
+.section-h {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 28px 24px 14px;
+}
+.section-h .titles  { display: flex; flex-direction: column; gap: 2px; }
+.section-h .kanji {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--sumi);
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-h .kanji::before {
+  content: "";
+  width: 4px; height: 20px;
+  background: var(--shu);
+  display: inline-block;
+  border-radius: 2px;
+}
+.section-h .roma {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  margin-left: 14px;
+  font-weight: 500;
+}
+.section-h .more {
+  font-size: 12px;
+  color: var(--sumi);
+  font-weight: 600;
+  background: transparent;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--line);
+  transition: opacity 0.15s;
+}
+.section-h .more:hover { opacity: 0.7; }
+
+/* ── D-tag pill (desktop) ── */
+.d-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 999px;
+  background: var(--washi-2);
+  font-size: 10.5px; color: var(--ink-soft);
+  border: 1px solid var(--line);
+  font-weight: 600; letter-spacing: 0.04em;
+}
+.d-tag.gold { background: var(--gold-soft); color: var(--gold-2); border-color: transparent; }
+.d-tag.sumi { background: var(--sumi); color: var(--washi); border-color: transparent; }
+.d-tag.shu  { background: var(--shu-soft); color: var(--shu); border-color: transparent; }
+.d-tag.jade { background: rgba(92,138,110,0.14); color: #3F6750; border-color: transparent; }
+
+/* ── Kicker (desktop section label) ── */
+.d-kicker {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 11px; letter-spacing: 0.22em;
+  color: var(--ink-mute); text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.d-kicker .bar { width: 24px; height: 1px; background: var(--shu); }
+.d-kicker em   { font-style: normal; color: var(--shu); }
+
+/* ── Responsive breakpoints ──
+   Desktop: ≥1024px
+   Tablet:  768–1023px
+   Mobile:  <768px
+*/
