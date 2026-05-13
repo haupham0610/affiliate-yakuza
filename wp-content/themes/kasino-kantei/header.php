@@ -83,10 +83,10 @@
                 title="Switch language">
           <?php echo esc_html( kasino_t( 'lang_toggle' ) ); ?>
         </button>
-        <a href="<?php echo esc_url( get_page_link( get_page_by_path( 'responsible-gambling' ) ) ); ?>"
-           title="責任あるギャンブル">20歳未満ご利用不可</a>
-        <a href="<?php echo esc_url( get_page_link( get_page_by_path( 'responsible-gambling' ) ) ); ?>"
-           title="責任あるギャンブル">RG · 責任あるプレイ</a>
+        <?php $rg_page = get_page_by_path( 'responsible-gambling' );
+              $rg_url  = $rg_page ? esc_url( get_permalink( $rg_page ) ) : esc_url( home_url( '/responsible-gambling/' ) ); ?>
+        <a href="<?php echo $rg_url; ?>" title="責任あるギャンブル">20歳未満ご利用不可</a>
+        <a href="<?php echo $rg_url; ?>" title="責任あるギャンブル">RG · 責任あるプレイ</a>
         <a href="<?php echo esc_url( wp_login_url() ); ?>"
            class="register-link"
            title="会員登録">会員登録</a>
